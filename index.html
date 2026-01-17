@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DS Quantitative Robot</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">DS</div>
+      <div>
+        <div class="name">DS Quantitative</div>
+        <div class="sub">Robot WebApp</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <button class="chip" id="langBtn">English</button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HOME -->
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="hero-title">Smart Quantitative System</div>
+          <div class="hero-sub">Sky Blue + Black Dashboard</div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">Total Assets</div>
+          <div class="card-value" id="totalAssets">$0.00</div>
+          <div class="card-sub">≈ 0 USDT</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Quantitative Account</div>
+          <div class="card-value" id="dsBalance">0 DS</div>
+          <div class="card-sub" id="vipStatus">VIP0</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <button class="grid-btn" data-open="depositModal">Deposit</button>
+        <button class="grid-btn" data-open="withdrawModal">Withdraw</button>
+        <button class="grid-btn" data-open="helpModal">Help</button>
+        <button class="grid-btn" data-open="teamModal">Team</button>
+
+        <button class="grid-btn" data-open="inviteModal">Invite</button>
+        <button class="grid-btn" data-open="activityModal">Activity</button>
+        <button class="grid-btn" data-open="newsModal">News</button>
+        <button class="grid-btn" data-open="agentModal">Agent</button>
+      </div>
+
+      <div class="note">
+        ✅ VIP0 gives <b>1000 DS/day</b> for <b>5 days</b>.  
+        ✅ Exchange: <b>1000 DS = 1 USDT</b>
+      </div>
+    </section>
+
+    <!-- QUANTIFY -->
+    <section class="page" id="page-quantify">
+      <div class="page-title">Quantify</div>
+
+      <div class="panel">
+        <div class="row">
+          <div>
+            <div class="small">Current Level</div>
+            <div class="big" id="vipLevelText">VIP0</div>
+          </div>
+          <div class="badge" id="vipDaysLeft">Days Left: 5</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="small">Today DS</div>
+            <div class="big" id="todayDs">0 DS</div>
+          </div>
+          <div class="stat">
+            <div class="small">Total DS</div>
+            <div class="big" id="totalDs">0 DS</div>
+          </div>
+          <div class="stat">
+            <div class="small">Total Revenue</div>
+            <div class="big" id="totalUsdt">$0.00</div>
+          </div>
+        </div>
+
+        <button class="primary" id="startQuantifyBtn">Start Quantify</button>
+
+        <div class="mini-text">
+          VIP0 auto earning system (demo logic).  
+          In real system you will connect database.
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="page-title2">VIP List</div>
+        <div class="vip-item">
+          <div>
+            <div class="vip-name">VIP0</div>
+            <div class="vip-sub">5 Days • 1000 DS/day</div>
+          </div>
+          <div class="vip-tag active">Active</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXCHANGE -->
+    <section class="page" id="page-exchange">
+      <div class="page-title">Exchange</div>
+
+      <div class="panel">
+        <div class="row">
+          <div>
+            <div class="small">Rate</div>
+            <div class="big">1000 DS = 1 USDT</div>
+          </div>
+        </div>
+
+        <div class="exchange-box">
+          <label>Enter DS Amount</label>
+          <input type="number" id="exchangeDsInput" placeholder="1000" />
+
+          <div class="exchange-preview" id="exchangePreview">
+            You will get: 0 USDT
+          </div>
+
+          <button class="primary" id="exchangeBtn">Exchange Now</button>
+          <div class="mini-text">Instant exchange (demo). Min: 1000 DS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ME -->
+    <section class="page" id="page-me">
+      <div class="page-title">Me</div>
+
+      <div class="profile">
+        <div class="avatar">DS</div>
+        <div>
+          <div class="hello" id="helloUser">Hello, User</div>
+          <div class="small" id="userIdText">User ID: -</div>
+          <div class="vip-pill" id="vipPill">VIP0</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="stats">
+          <div class="stat">
+            <div class="small">Total Assets</div>
+            <div class="big" id="meAssets">$0.00</div>
+          </div>
+          <div class="stat">
+            <div class="small">DS Balance</div>
+            <div class="big" id="meDs">0 DS</div>
+          </div>
+          <div class="stat">
+            <div class="small">USDT Balance</div>
+            <div class="big" id="meUsdt">0.00 USDT</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="secondary" data-open="depositModal">Recharge</button>
+          <button class="secondary" data-open="withdrawModal">Withdraw</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="page-title2">Invite Friends</div>
+        <div class="mini-text">Your referral is based on Telegram UserID.</div>
+
+        <div class="ref-box">
+          <div class="small">Referral Link</div>
+          <div class="ref-link" id="refLink">-</div>
+          <button class="primary" id="copyRefBtn">Copy Referral</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-page="home">Home</button>
+    <button class="nav-btn" data-page="quantify">Quantify</button>
+    <button class="nav-btn" data-page="exchange">Exchange</button>
+    <button class="nav-btn" data-page="me">Me</button>
+  </nav>
+
+  <!-- MODALS -->
+  <div class="modal" id="depositModal">
+    <div class="modal-card">
+      <div class="modal-title">Deposit (USDT)</div>
+      <div class="small">Network fixed: <b>BSC (BEP20)</b></div>
+
+      <div class="addr-box">
+        <div class="small">Deposit Address</div>
+        <div class="addr" id="depositAddr">
+          0x3abf35cbd97a4236e9da24c6957e332c54706133
+        </div>
+        <button class="primary" id="copyDepositBtn">Copy Address</button>
+      </div>
+
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="withdrawModal">
+    <div class="modal-card">
+      <div class="modal-title">Withdraw</div>
+      <div class="small">Minimum: <b>5 USDT</b> • Fee: <b>0</b> • Network: <b>BSC (BEP20)</b></div>
+
+      <div class="form">
+        <label>Wallet Address (BEP20)</label>
+        <input id="wdAddress" placeholder="Enter USDT address..." />
+
+        <label>Amount (USDT)</label>
+        <input id="wdAmount" type="number" placeholder="5" />
+
+        <button class="primary" id="withdrawSubmit">Submit Withdrawal</button>
+        <div class="mini-text" id="withdrawMsg"></div>
+      </div>
+
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="helpModal">
+    <div class="modal-card">
+      <div class="modal-title">Help</div>
+      <div class="mini-text">
+        ✅ VIP0 gives 1000 DS/day for 5 days.<br/>
+        ✅ Exchange: 1000 DS = 1 USDT.<br/>
+        ✅ Withdraw min 5 USDT, network BEP20.
+      </div>
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="teamModal">
+    <div class="modal-card">
+      <div class="modal-title">Team</div>
+      <div class="mini-text">Your referral users will be counted here (demo).</div>
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="inviteModal">
+    <div class="modal-card">
+      <div class="modal-title">Invite</div>
+      <div class="mini-text">Share your referral link and earn rewards (custom later).</div>
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="activityModal">
+    <div class="modal-card">
+      <div class="modal-title">Activity</div>
+      <div class="mini-text">Task center & rewards will show here (custom later).</div>
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="newsModal">
+    <div class="modal-card">
+      <div class="modal-title">News</div>
+      <div class="mini-text">Announcements & updates will show here.</div>
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <div class="modal" id="agentModal">
+    <div class="modal-card">
+      <div class="modal-title">Agent Cooperation</div>
+      <div class="mini-text">Agent/Partner system can be added.</div>
+      <button class="close" data-close>Close</button>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+          </html>
 
