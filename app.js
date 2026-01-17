@@ -6,6 +6,17 @@
 const BOT_USERNAME = "Dsquantitative_bot"; // change later (example: DSQuantitativeRobotBot)
 const DEPOSIT_ADDRESS = "0x3abf35cbd97a4236e9da24c6957e332c54706133";
 
+const GROUP_LINK = "https://t.me/+7kJ0LyJ-bsVkZTA1";
+const CHANNEL_LINK = "https://t.me/dsquantative";
+
+const TASK_REWARD_DS = 500;
+
+let taskStatus = {
+  groupClaimed: false,
+  channelClaimed: false,
+};
+
+
 let state = {
   userId: null,
   vip: "VIP0",
@@ -203,6 +214,52 @@ function bindEvents() {
     const amt = Number(document.getElementById("wdAmount").value || 0);
     submitWithdraw(addr, amt);
   });
+
+    // Task Center: Go buttons
+  const goGroupBtn = document.getElementById("goGroupBtn");
+  const goChannelBtn = document.getElementById("goChannelBtn");
+  const claimGroupBtn = document.getElementById("claimGroupBtn");
+  const claimChannelBtn = document.getElementById("claimChannelBtn");
+
+  if (goGroupBtn) {
+    goGroupBtn.addEventListener("click", () => {
+      window.open(GROUP_LINK, "_blank");
+    });
+  }
+
+  if (goChannelBtn) {
+    goChannelBtn.addEventListener("click", () => {
+      window.open(CHANNEL_LINK, "_blank");
+    });
+  }
+
+  // Claim buttons
+  if (claimGroupBtn) {
+    claimGroupBtn.addEventListener("click", () => {
+      if (taskStatus.groupClaimed) {
+        alert("✅ Already claimed!");
+        return;
+      }
+      taskStatus.groupClaimed = true;
+      state.ds += TASK_REWARD_DS;
+      updateUI();
+      alert("✅ Group Task Claimed: +500 DS");
+    });
+  }
+
+  if (claimChannelBtn) {
+    claimChannelBtn.addEventListener("click", () => {
+      if (taskStatus.channelClaimed) {
+        alert("✅ Already claimed!");
+        return;
+      }
+      taskStatus.channelClaimed = true;
+      state.ds += TASK_REWARD_DS;
+      updateUI();
+      alert("✅ Channel Task Claimed: +500 DS");
+    });
+  }
+  
 
   // close modal when tapping outside
   document.querySelectorAll(".modal").forEach(m => {
