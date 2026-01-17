@@ -247,13 +247,45 @@
     </div>
   </div>
 
-  <div class="modal" id="teamModal">
-    <div class="modal-card">
-      <div class="modal-title">Team</div>
-      <div class="mini-text">Your referral users will be counted here (demo).</div>
-      <button class="close" data-close>Close</button>
+  <div class="modal" id="activityModal">
+  <div class="modal-card">
+    <div class="modal-title">Task Center</div>
+    <div class="mini-text">Complete tasks and claim DS rewards.</div>
+
+    <div class="panel" style="margin-top:12px;">
+      <div class="vip-item">
+        <div>
+          <div class="vip-name">Join Group</div>
+          <div class="vip-sub">Reward: +500 DS</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="secondary" id="goGroupBtn">Go</button>
+          <button class="primary" style="width:auto; padding:10px 12px;" id="claimGroupBtn">Claim</button>
+        </div>
+      </div>
+
+      <div style="height:10px"></div>
+
+      <div class="vip-item">
+        <div>
+          <div class="vip-name">Follow Channel</div>
+          <div class="vip-sub">Reward: +500 DS</div>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="secondary" id="goChannelBtn">Go</button>
+          <button class="primary" style="width:auto; padding:10px 12px;" id="claimChannelBtn">Claim</button>
+        </div>
+      </div>
+
+      <div class="mini-text" style="margin-top:10px;">
+        ⚠️ Claim works only once per task (demo).
+      </div>
     </div>
+
+    <button class="close" data-close>Close</button>
   </div>
+  </div>
+  
 
   <div class="modal" id="inviteModal">
     <div class="modal-card">
